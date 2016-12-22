@@ -1,0 +1,22 @@
+=== Tsundoku
+
+image::https://openclipart.org/image/300px/svg_to_png/38869/paperback-stack.png[width=90]
+
+"Tsundoku": 積ん読 - the habit of piling up books and never getting around to read them.
+
+Tsundoku is simple and lightweight OPDS ebook server.
+
+It's compatible with FBreader & co.
+It doesn't parse the epub contents or use databases. The books are exposed by path.
+
+CAUTION: Tsundoku hasn't been hardened: use it on trusted networks.
+
+==== Usage
+
+Build with:
+
+    nim c -d:release tsundoku.nim
+
+Run:
+
+    ./tsundoku <ebooks_directory>

@@ -1,0 +1,69 @@
+#? stdtmpl | standard
+#proc generate_opds(title: string, updated: TimeInfo, entries: seq[OPDSEntry]): string =
+#  result = ""
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:opds="http://opds-spec.org/2010/catalog"
+  xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"
+  xmlns:relevance="http://a9.com/-/opensearch/extensions/relevance/1.0/">
+
+  <id>http://m.gutenberg.org/ebooks.opds/</id>
+
+  <updated>${updated}</updated>
+  <title>${title}</title>
+
+  <opensearch:itemsPerPage>25</opensearch:itemsPerPage>
+  <opensearch:startIndex>1</opensearch:startIndex>
+
+  # for entry in entries:
+  <entry>
+    <title>${entry.title}</title>
+    # if entry.uuid != nil:
+    <id>urn:uuid:${entry.uuid}</id>
+    # end
+    # if entry.content != nil:
+    <content type="text">${entry.content}</content>
+    # end
+    <updated>entry.updated</updated>
+
+    # for author in entry.authors:
+    <author>
+      <name>${author.name}</name>
+      <uri>${author.uri}</uri>
+    </author>
+    # end
+    # if entry.language != nil:
+    <dc:language>${entry.language}</dc:language>
+    # end
+    # if entry.issue_date != nil:
+    <dc:issued>${entry.issue_date}</dc:issued>
+    # end
+    # if entry.rights != nil:
+    <rights>${entry.rights}</rights>
+    # end
+    # if entry.isbn != nil:
+    <dc:identifier>urn:isbn:${entry.isbn}</dc:identifier>
+    # end
+    # if entry.publisher != nil:
+    <dc:publisher>${entry.publisher}</dc:publisher>
+    # end
+    # if entry.summary != nil:
+    <summary>${entry.summary}</summary>
+    # end
+
+    # if entry.category_term != nil and entry.category_label != nil:
+    <category scheme="http://www.bisg.org/standards/bisac_subject/index.html"
+              term="${entry.category_term}"
+              label="${entry.category_label}"/>
+    # end
+
+    # for link in entry.links:
+    <link href="${link.href}" rel="${link.rel}" type="${link.linktype}" />
+    # end
+
+  </entry>
+  # end
+
+</feed>
