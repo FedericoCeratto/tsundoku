@@ -13,6 +13,10 @@ CAUTION: Tsundoku hasn't been hardened: use it on trusted networks.
 
 ==== Usage
 
+Install nim on Debian/Ubuntu with:
+
+    sudo apt install nim 
+
 Build with:
 
     nim c -d:release tsundoku.nim
@@ -20,3 +24,7 @@ Build with:
 Run:
 
     ./tsundoku <ebooks_directory>
+
+Tsundoku will publish ebooks in the directory and its subdirectories on port 8080
+
+Compatible with FBReader.
