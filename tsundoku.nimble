@@ -8,5 +8,4 @@ bin           = @["tsundoku"]
 
 # Dependencies
 
-requires "nim >= 0.15.2"
-
+requires "nim >= 0.15.2", "jester"
