@@ -4,6 +4,10 @@ image::https://openclipart.org/image/300px/svg_to_png/38869/paperback-stack.png[
 
 "Tsundoku": 積ん読 - the habit of piling up books and never getting around to read them.
 
+image:https://img.shields.io/badge/status-alpha-orange.svg[badge]
+image:https://img.shields.io/badge/version-0.1.0-orange.svg[badge]
+image:https://img.shields.io/badge/License-GPL%20v3-blue.svg[License]
+
 Tsundoku is simple and lightweight OPDS ebook server.
 
 It's compatible with FBreader & co.
@@ -15,7 +19,7 @@ CAUTION: Tsundoku hasn't been hardened: use it on trusted networks.
 
 Install nim on Debian/Ubuntu with:
 
-    sudo apt install nim 
+    sudo apt install nim
 
 Build with:
 
